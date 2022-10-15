@@ -61,8 +61,4 @@ export default {
     font-size: 20px;
   }
 }
-
-.type {
-  margin-right: 10px;
-}
 </style>
