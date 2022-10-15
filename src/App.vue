@@ -1,19 +1,19 @@
 <template>
   <div class="primary">
-    <Header />
+    <BaseHeader />
     <RouterView class="primary__content" />
-    <Footer />
+    <BaseFooter />
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header/index.vue'
-import Footer from '@/components/Footer/index.vue'
+import BaseHeader from '@/components/BaseHeader/index.vue'
+import BaseFooter from '@/components/BaseFooter/index.vue'
 
 export default {
   components: {
-    Header,
-    Footer
+    BaseHeader,
+    BaseFooter
   }
 }
 </script>
