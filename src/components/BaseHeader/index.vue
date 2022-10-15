@@ -1,8 +1,8 @@
 <template>
   <header class="header">
     <div class="header__inner">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/">Задание-1</RouterLink>
+      <RouterLink to="/task-2">Задание-2</RouterLink>
     </div>
   </header>
 </template>
