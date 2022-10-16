@@ -12,6 +12,7 @@
       :style="`color: ${isExpanded(node) ? 'green' : 'black'}`"
       @click="nodeClicked(node, $event)">
     </button>
+    <input class="checkbox" type="checkbox" :value="node.count" @change="change($event)">
     <a :href="`https://www.klerk.ru${node.url}`" target="_blank">{{node.title}}</a> -
     <span>{{ node.count }}</span>
     <TreeRubrics
@@ -23,7 +24,7 @@
 </template>
 
 <script>
-
+import { mapActions } from 'vuex'
 export default {
   name: 'TreeRubrics',
   props: {
@@ -39,14 +40,25 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      addCountToStore: 'addCount',
+      deleteCountStore: 'deleteCount'
+    }),
     isExpanded (node) {
       return this.expanded.indexOf(node) !== -1
     },
-    nodeClicked (node, e) {
+    nodeClicked (node) {
       if (!this.isExpanded(node)) {
         this.expanded.push(node)
       } else {
         this.expanded.splice(this.expanded.indexOf(node))
+      }
+    },
+    change (e) {
+      if (e.target.checked) {
+        this.addCountToStore(e.target.value)
+      } else {
+        this.deleteCountStore(e.target.value)
       }
     }
   }
@@ -61,4 +73,8 @@ export default {
     font-size: 20px;
   }
 }
+.checkbox {
+  margin-right: 5px;
+}
+
 </style>

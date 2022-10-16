@@ -5,5 +5,14 @@ export default {
       .then(data => {
         commit('setRubrics', data)
       })
+  },
+  addCount ({ commit }, count) {
+    commit('setAddCount', count)
+  },
+  deleteCount ({ commit }, count) {
+    commit('setDeleteCount', count)
+  },
+  clearCount ({ commit }) {
+    commit('setClearCount')
   }
 }
