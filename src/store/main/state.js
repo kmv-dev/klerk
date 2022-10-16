@@ -1,3 +1,4 @@
 export default () => ({
-  rubrics: []
+  rubrics: [],
+  count: []
 })
