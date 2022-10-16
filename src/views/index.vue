@@ -34,27 +34,24 @@ export default {
   },
   methods: {
     ...mapActions({
-      rubrics: 'fetchRubrics',
+      handleRubrics: 'fetchRubrics',
       clearCount: 'clearCount'
     }),
     fetchRubrics () {
+      const checkboxes = document.querySelectorAll('.checkbox')
       this.clearCount()
-      this.rubrics(this.parameter)
+      this.handleRubrics(this.parameter)
+      checkboxes.forEach(el => {
+        el.checked = false
+      })
     },
     allowEmpty (e) {
-      const checkboxes = document.querySelectorAll('.checkbox')
       if (e.target.checked) {
         this.parameter = 1
         this.fetchRubrics()
-        checkboxes.forEach(el => {
-          el.checked = false
-        })
       } else {
         this.parameter = 0
         this.fetchRubrics()
-        checkboxes.forEach(el => {
-          el.checked = false
-        })
       }
     }
   }
