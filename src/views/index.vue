@@ -60,6 +60,7 @@ export default {
 
 <style lang="scss" scoped>
 .main {
+  padding: 30px;
   &__input {
     margin-right: 5px;
   }
